@@ -1,7 +1,7 @@
 
 $(document).ready(function() {
     $('.btn-primary').on('click', function() {
-      var parentId = $(this).closest('.col-6').attr('id');
+      var parentId = $(this).closest('.car').attr('id');
   
       $.getJSON('samochody.json', function(data) {
         var car = data[parentId];
@@ -17,9 +17,9 @@ $(document).ready(function() {
       var selectedOption = $(this).val();
   
       if (selectedOption === 'all') {
-        $('.col-6').css('display', 'block').removeClass('order-last');
+        $('.car').css('display', 'block').removeClass('order-last');
       } else {
-        $('.col-6').css('display', 'none').removeClass('order-last');
+        $('.car').css('display', 'none').removeClass('order-last');
         if (selectedOption === 'volkswagen') {
           $('.vw').css('display', 'block');
         } else if (selectedOption === 'audi') {

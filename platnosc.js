@@ -70,7 +70,7 @@
 //     });
 //   });
 
-//! document.addEventListener('DOMContentLoaded', function() {
+//  document.addEventListener('DOMContentLoaded', function() {
 //     var carData = sessionStorage.getItem('carData');
   
 //     if (carData) {
@@ -197,7 +197,7 @@
 //     });
 //   });
 
-document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('DOMContentLoaded', function() {
     var carData = sessionStorage.getItem('carData');
   
     if (carData) {
@@ -249,4 +249,35 @@ document.addEventListener('DOMContentLoaded', function() {
       document.getElementById('nazwisko').value = formFields.nazwisko;
       document.getElementById('miasto').value = formFields.miasto;
     }
+    var sumaCen = sessionStorage.getItem('sumaCen');
+
+    if (sumaCen) {
+      document.getElementById('cena').textContent = 'Cena: ' + sumaCen + 'zł';
+    } else {
+      // Jeśli brak sumy cen, przekieruj użytkownika na stronę główną
+      window.location.href = 'index.html';
+    }
+  
+    var platnoscForm = document.getElementById('platnoscForm');
+    platnoscForm.addEventListener('submit', function(event) {
+      event.preventDefault();
+  
+      var imie = document.getElementById('imie').value;
+      var nazwisko = document.getElementById('nazwisko').value;
+      var miasto = document.getElementById('miasto').value;
+      var opcja = document.querySelector('input[name="opcje"]:checked').value;
+      var checkbox1 = document.getElementById('checkbox1').checked;
+      var checkbox2 = document.getElementById('checkbox2').checked;
+      var checkbox3 = document.getElementById('checkbox3').checked;
+  
+      // Tutaj możesz wykonać żądanie AJAX, wysłać dane na serwer itp.
+  
+      // Przekieruj użytkownika na stronę "dziekujemy.html"
+      window.location.href = 'dziekujemy.html';
+  
+      // Wyczyść zawartość pól formularza
+      document.getElementById('imie').value = '';
+      document.getElementById('nazwisko').value = '';
+      document.getElementById('miasto').value = '';
+    });
   });
